@@ -47,10 +47,20 @@ else:
     gray = None
     st.write("Please upload an image file.")
     
+
+
 if gray is not None:
-    model = LeNet_5()
-    model.load_state_dict(torch.load('best_lenet5.pth'), map_location=torch.device('cpu'))
+    # Determine if CUDA is available
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    # Load the model and move it to the correct device
+    model = LeNet_5().to(device)
+    model.load_state_dict(torch.load('best_lenet5.pth', map_location=device))  # Load model on the correct device
     model.eval()
+    
+    # Move input tensor to the correct device
+    gray = gray.to(device)
+    
     output = model(gray)
     _, pred = torch.max(output, 1)
     st.write(f"Prediction: {pred.item()}")
@@ -63,4 +73,5 @@ st.write("""
             - It was trained on a simple model
             - The model might not even capture the features of the image
             - If you are trying for a better performance, you can check out ResNet, EfficientNet, etc.
-            """)
+            """
+        )
