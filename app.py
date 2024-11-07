@@ -7,7 +7,8 @@ import torch
 
 st.write("""
         # Simple MNIST Classifier App
-        """)
+        """
+        )
 
 def image_input():
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
@@ -26,7 +27,6 @@ def to_gray_scale(image):
 
 
 def process_gray(grayimage):
-    
     transform = transforms.Compose([
         transforms.ToPILImage(),
         transforms.Resize((32, 32)),
@@ -50,15 +50,12 @@ else:
 
 
 if gray is not None:
-    # Determine if CUDA is available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    # Load the model and move it to the correct device
     model = LeNet_5().to(device)
     model.load_state_dict(torch.load('best_lenet5.pth', map_location=device))  # Load model on the correct device
     model.eval()
     
-    # Move input tensor to the correct device
     gray = gray.to(device)
     
     output = model(gray)
@@ -68,10 +65,10 @@ if gray is not None:
 
 
 st.write("""
-         Why this model sucks?
-            - It was trained on a small dataset
-            - It was trained on a simple model
+         ### Why this model sucks?
+            - It's a one of the oldest CNN model
+            - This model was trained on the MNIST dataset only, so it might not perform well on real-world images
             - The model might not even capture the features of the image
-            - If you are trying for a better performance, you can check out ResNet, EfficientNet, etc.
+            - If you are trying for a better performance, you can check out ResNet, EfficientNet, ViT etc.
             """
         )

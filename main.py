@@ -14,17 +14,17 @@ num_epochs = 50
 
 # Define transformations
 train_transform = transforms.Compose([
-    transforms.Resize((32, 32)),  # Resize the images to 32x32
+    transforms.Resize((32, 32)),
     transforms.RandomHorizontalFlip(),  # Randomly flip the images horizontally
     transforms.RandomRotation(10),  # Randomly rotate the images by 10 degrees
-    transforms.ToTensor(),  # Convert the images to tensor
+    transforms.ToTensor(),
     transforms.Normalize((0.1307,), (0.3081,))  # Normalize the images
 ])
 
 val_transform = transforms.Compose([
-    transforms.Resize((32, 32)),  # Resize the images to 32x32
-    transforms.ToTensor(),  # Convert the images to tensor
-    transforms.Normalize((0.1307,), (0.3081,))  # Normalize the images
+    transforms.Resize((32, 32)),
+    transforms.ToTensor(),
+    transforms.Normalize((0.1307,), (0.3081,))s
 ])
 
 # MNIST dataset
