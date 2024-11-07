@@ -9,6 +9,8 @@ This project implements **Part 2** of the paper *"Gradient-Based Learning Applie
 
 This paper explores methods for handwritten character recognition, emphasizing the power of **Convolutional Neural Networks (CNNs)** in classifying high-dimensional patterns with minimal preprocessing. It introduces **Graph Transformer Networks (GTNs)** for globally training multimodule systems and demonstrates their effectiveness in real-world applications such as **online handwriting recognition** and **bank check reading**.
 
+
+![image](https://github.com/user-attachments/assets/fcb54cc9-24cc-4853-aea7-be72d4c585b5)
 ---
 
 ## Part 2: MNIST CNN Implementation
