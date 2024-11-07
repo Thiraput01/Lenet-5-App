@@ -1,8 +1,5 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 from model import LeNet_5
-from io import StringIO
 import cv2
 import torchvision.transforms as transforms
 import torch
