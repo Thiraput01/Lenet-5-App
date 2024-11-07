@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 from model import LeNet_5
 import cv2
 import torchvision.transforms as transforms
