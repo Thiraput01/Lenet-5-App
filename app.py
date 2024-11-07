@@ -49,7 +49,7 @@ else:
     
 if gray is not None:
     model = LeNet_5()
-    model.load_state_dict(torch.load('best_lenet5.pth'))
+    model.load_state_dict(torch.load('best_lenet5.pth'), map_location=torch.device('cpu'))
     model.eval()
     output = model(gray)
     _, pred = torch.max(output, 1)
